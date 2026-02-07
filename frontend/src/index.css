@@ -36,7 +36,8 @@ body {
   overflow-x: hidden;
 }
 
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -125,7 +126,7 @@ html.lenis, html.lenis body {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   transition: left 0.5s ease;
 }
 
@@ -162,14 +163,27 @@ html.lenis, html.lenis body {
 
 /* Counter animation */
 @keyframes countUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Shine effect */
 @keyframes shine {
-  0% { left: -100%; }
-  50%, 100% { left: 100%; }
+  0% {
+    left: -100%;
+  }
+
+  50%,
+  100% {
+    left: 100%;
+  }
 }
 
 .shine-effect {
@@ -184,7 +198,7 @@ html.lenis, html.lenis body {
   left: -100%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
   animation: shine 3s infinite;
 }
 
@@ -237,8 +251,13 @@ html.lenis, html.lenis body {
 
 /* Loading skeleton */
 @keyframes skeleton-loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 .skeleton {
@@ -253,7 +272,9 @@ html.lenis, html.lenis body {
 }
 
 /* Input focus styles */
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
   border-color: var(--fire-red) !important;
   box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.2);
@@ -266,9 +287,21 @@ input:focus, textarea:focus, select:focus {
 }
 
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  20%, 60% { transform: translateX(-5px); }
-  40%, 80% { transform: translateX(5px); }
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20%,
+  60% {
+    transform: translateX(-5px);
+  }
+
+  40%,
+  80% {
+    transform: translateX(5px);
+  }
 }
 
 .input-success {
@@ -313,6 +346,7 @@ input:focus, textarea:focus, select:focus {
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {
@@ -320,8 +354,11 @@ input:focus, textarea:focus, select:focus {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
-  .reveal-up, .reveal-left, .reveal-right, .reveal-scale {
+
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
     opacity: 1;
     transform: none;
   }
@@ -361,6 +398,7 @@ input:focus, textarea:focus, select:focus {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
