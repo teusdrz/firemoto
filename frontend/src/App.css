@@ -1,5 +1,16 @@
 /* Fire Moto Landing Page Styles */
 
+/* Global overflow fix */
+#root {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+.App {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
 /* Hero Section */
 .hero-section {
   position: relative;
