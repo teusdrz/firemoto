@@ -1,0 +1,45 @@
+services:
+  # Backend - FastAPI
+  - type: web
+    name: firemoto-backend
+    runtime: python
+    region: oregon
+    plan: free
+    branch: main
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn server:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: MONGO_URL
+        sync: false
+      - key: DB_NAME
+        value: firemoto
+      - key: CORS_ORIGINS
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: SENDER_EMAIL
+        sync: false
+      - key: NOTIFICATION_EMAIL
+        sync: false
+
+  # Frontend - React
+  - type: web
+    name: firemoto-frontend
+    runtime: node
+    region: oregon
+    plan: free
+    branch: main
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./build
+    envVars:
+      - key: REACT_APP_BACKEND_URL
+        fromService:
+          type: web
+          name: firemoto-backend
+          property: host
+      - key: ENABLE_HEALTH_CHECK
+        value: false
+      - key: WDS_SOCKET_PORT
+        value: "443"
